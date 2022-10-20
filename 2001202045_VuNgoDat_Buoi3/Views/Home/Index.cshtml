@@ -1,0 +1,70 @@
+﻿@model IEnumerable<_2001202045_VuNgoDat_Buoi3.Models.Employee>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        th {
+            background-color: blue;
+            color: #fff;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Tạo Mới", "Create")
+    </p>
+    <p>Số lương nhân viên hiện có: @ViewBag.SL </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                Tùy chọn
+            </th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id=item.ID }) |
+                @Html.ActionLink("Chi tiết", "Detail", new { id=item.ID }) |
+                @Html.ActionLink("Xóa", "Delete", new { id=item.ID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+    @Html.ActionLink("Danh sách phòng ban", "Index", "Department")
+</body>
+</html>

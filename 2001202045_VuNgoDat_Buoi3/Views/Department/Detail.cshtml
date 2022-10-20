@@ -1,0 +1,69 @@
+﻿@model _2001202045_VuNgoDat_Buoi3.Models.Department
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail</title>
+</head>
+<body>
+    <div>
+        <h4>Department</h4>
+        <hr />
+        <div>
+            @Html.DisplayNameFor(model => model.Id) : <span>@Html.DisplayFor(model => model.Id)</span>
+        </div>
+        <div>
+
+        </div>
+        <div>
+            @Html.DisplayNameFor(model => model.Name) : <span>@Html.DisplayFor(model => model.Name)</span>
+        </div>
+        <div>
+            Số lượng nhân viên trong phòng ban: <span>@ViewBag.CountEpl</span>
+        </div>
+
+    </div>
+    
+<table class="table">
+    <tr>
+        <th>
+            Mã nhân viên
+        </th>
+        <th>
+            Họ tên
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th>
+            Tỉnh thành
+        </th>
+    </tr>
+
+    @foreach (_2001202045_VuNgoDat_Buoi3.Models.Employee item in @ViewBag.ListEmpl)
+    {
+        <tr>
+            <td>
+                @item.ID.ToString()
+            </td>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Gender
+            </td>
+            <td>
+                @item.City
+            </td>
+        </tr>
+    }
+
+</table>
+</body>
+</html>
